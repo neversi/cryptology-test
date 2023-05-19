@@ -37,13 +37,6 @@ build-binary:
 .PHONY: build
 build: deps build-binary
 
-.PHONY:
-build-image:
-	@echo 'build docker image'
-	docker build --no-cache --rm --progress=plain -t $(REGISTRY_HOST)/$(PROJECT_NAME)/$(APP_NAME):$(APP_VERSION) \
-		-f $(DOCKERFILE_NAME) --build-arg GITHUB_CREDS=$(GITHUB_CREDS) --build-arg OUTPUT_BINARY=$(OUTPUT_BINARY) \
-		--build-arg APP_VERSION=$(APP_VERSION) --build-arg BUILD_DIR=$(BUILD_DIR) .
-
 .PHONY: install-mockgen gen
 install-mockgen: deps
 	go install github.com/golang/mock/mockgen@v$(MOCKGEN_VERSION)

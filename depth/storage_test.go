@@ -19,7 +19,6 @@ import (
 var stock depth.Depth
 
 func TestMain(m *testing.M) {
-	fmt.Println("here")
 	stocks := map[string]depth.Depth{
 		"Simple Implementation":        simple.NewDepth(),
 		"Binary Search Implementation": bs.NewDepth(depth.Options{}),
